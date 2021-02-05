@@ -1,4 +1,4 @@
-import math
-
-addition.add_two_numbers(n1, n2):
-print('adding')
+def add(n1, n2):
+    answer = int(n1) + int(n2)
+    return answer
+  

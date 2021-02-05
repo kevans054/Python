@@ -1,28 +1,53 @@
-import addition.py
-import division
-import multiplication
-import subtraction
+from addition import add
+from subtraction import subtract
+from multiplication import multiply
+from division import divide
 
-def select_function():
-	print("Welcome to my python calculator. Please select from the following: ")
+def choose():
+	while True:
+		print("Welcome to my python calculator. What would you like to do? ")
+		print("1. Addition")
+		print("2. Subtraction")
+		print("3. Multiplication")
+		print("4. Division")
+		print("5. To exit")
 
-	print("1. Addition")
-	print("2. Subtraction")
-	print("3. Multiplication")
-	print("4. Division")
+		user_selection = int(input("My choice is: "))
 
-	user_selection = 0
+		if user_selection == 1:
+			n1 = input("enter your first number: ")
+			n2 = input("enter your second number: ")
+			answer = add(n1, n2)
+			print("answer: " + str(answer))
+			
 
+		elif user_selection == 2:
+			n1 = input("enter your first number: ")
+			n2 = input("enter your second number: ")
+			answer = subtract(n1, n2)
+			print("answer: " + str(answer))
+			
 
-	if user_selection == 1:
-		addition.add_two_numbers(n1, n2)
+		elif user_selection == 3:
+			n1 = input("enter your first number: ")
+			n2 = input("enter your second number: ")
+			answer = multiply(n1, n2)
+			print("answer: " + str(answer))
+			
 
-	elif user_selection == 2:
-		subtraction.subtract_two_numbers(n1, n2)
+		elif user_selection == 4:
+			n1 = input("enter your first number: ")
+			n2 = input("enter your second number: ")
+			answer = divide(n1, n2)
+			print("answer: " + str(answer))
+			
 
-	elif user_selection == 3:
-		multiplication.multiply_two_numbers(n1, n2)
+		elif user_selection == 5:
+			print("Goodbye")
+			break
 
-	elif user_selection == 4:
-		division.divide_two_numbers(n1, n2)
+		else:
+			print("Invalid selection. please try again")
+		print("")
 
+choose()
