@@ -15,16 +15,28 @@ def choose():
 		print("2. Subtraction")
 		print("3. Multiplication")
 		print("4. Division")
-		print("'Ctrl c' To quit")
-		user_selection = int(input("My choice is: "))
+
+
 		thislist = []
 		y = True
 
-		while y == True:
+		while True:
+			try:
+				user_selection = int(input("My choice is: "))
+				if user_selection > 0 and user_selection < 5:
+					break
+				else:
+					print("Only integers between 1 and 4 are allowed. Try again")
+			# CalculatorInputError
+			except ValueError:
+				print("Only integers between 1 and 4 are allowed. Try again")
+
+		while True:
 			n1 = input("Type the number and press enter: ")
 			print("To calculate type '=': ")
+			
 			if n1 == "=":
-				y = False
+				break
 			else:
 				n1 = int(n1)
 				thislist.append(n1)
@@ -32,7 +44,6 @@ def choose():
 		if user_selection == 1:
 			answer = add(thislist)
 			print("answer: " + str(answer))
-			print(thislist)
 			
 
 		elif user_selection == 2:
@@ -46,12 +57,17 @@ def choose():
 			
 
 		elif user_selection == 4:
+			for x in range(len(thislist) - 1):
+				if thislist[x] == 0:
+					print("cannot divide by zero")
+					print("")
+					choose()
 			answer = divide(thislist)
 			print("answer: " + str(answer))
 
-
 		else:
 			print("Invalid selection. please try again")
+
 		print("")
 
 choose()
